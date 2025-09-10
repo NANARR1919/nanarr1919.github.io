@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My Web Page</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">Moon Entertainment</div>
+                <button class="nav-toggle" aria-label="메뉴 열기">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#problem">문제</a></li>
+                    <li><a href="#solution">해결</a></li>
+                    <li><a href="#industries">적용 분야</a></li>
+                    <li><a href="#features">특징</a></li>
+                    <li><a href="#contact">상담 신청</a></li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <section class="section-hero fade-in">
+                <div class="hero-inner">
+                    <h1 class="hero-title">Moon Entertainment — 인플루언서 자동화 마케팅</h1>
+                    <p class="hero-desc main">“수수료 없이, 직접 연결하는 가장 효율적인 방법”</p>
+                    <p class="hero-desc sub">“대표님이 바로 마케터가 될 수 있습니다.”<br>직원 의존 없이, 소통만 하시면 됩니다.<br>힘들게 컨택하지 마세요 — 저희가 자동으로 처리합니다.</p>
+                    <button id="start-btn" class="cta-btn">지금 시작하기</button>
+                </div>
+            </section>
+            <section id="problem" class="section fade-in section-problem row">
+                <div class="section-text section-full">
+                    <h2 class="center-text">문제 (Problem)</h2>
+                    <ul class="problem-cards">
+                        <li class="problem-card row1">인플루언서 리스트 최신화, 아직도 수동으로 힘드세요?</li>
+                        <li class="problem-card row1">카테고리별로 정리하고 관리하는 데만 시간이 다 가나요?</li>
+                        <li class="problem-card row1">매일 수십, 수백 건의 DM을 수동 발송하시나요?</li>
+                        <li class="problem-card row2">인플루언서 마케팅만으로도 인건비 최소 400만 원 이상이 소요되는 현실…</li>
+                        <li class="problem-card row2">게다가 해외·국내 마케팅 대행사에게 큰 수수료까지 지불하고 계신가요?</li>
+                    </ul>
+                </div>
+                <!-- <div class="section-img-wrap">
+                    <img src="problem-img.png" alt="문제 이미지" class="section-img img-problem">
+                </div> -->
+            </section>
+            <section id="solution" class="section fade-in section-solution row reverse">
+                <div class="section-text">
+                    <h2>해결 (Solution)</h2>
+                    <ul>
+                        <li>최신화된 인플루언서 리스트 매일 업데이트 & 대량 확보</li>
+                        <li>브랜드에 맞춘 카테고리별 정밀 타겟팅</li>
+                        <li>대량 자동 DM 발송으로 폭발적인 제안서 전송</li>
+                        <li>대행사 수수료 없이, 직접 여러 인플루언서와 소통</li>
+                        <li>저희와 함께라면, 대표님이 직접 마케터가 될 수 있습니다.</li>
+                        <li>직원에게 의존하지 않아도, 대표님이 원하실 때 직접 마케팅 실행 가능</li>
+                    </ul>
+                </div>
+                <div class="section-img-wrap">
+                    <img src="solution-img.png" alt="해결 이미지" class="section-img img-solution">
+                </div>
+            </section>
+            <section id="industries" class="section fade-in section-industries row">
+                <div class="section-text">
+                    <h2>적용 가능 분야 (Industries)</h2>
+                    <ul>
+                        <li>병원 (피부과, 성형외과, 한의원 등)</li>
+                        <li>에스테틱 & 뷰티샵</li>
+                        <li>요식업 (레스토랑, 카페 등)</li>
+                        <li>화장품·건강기능식품 브랜드</li>
+                        <li>그 외 다양한 브랜드 및 서비스 업종</li>
+                    </ul>
+                    <p>국가의 제한도 없습니다.<br>어느 나라든, 어떤 업종이든 적용 가능합니다.</p>
+                </div>
+                <div class="section-img-wrap">
+                    <img src="industries-img.png" alt="적용 분야 이미지" class="section-img img-industries">
+                </div>
+            </section>
+            <section id="features" class="section fade-in section-features row reverse">
+                <div class="section-text section-full">
+                    <h2 class="center-text">특징 (Features)</h2>
+                    <div class="features-cards">
+                        <div class="feature-card">
+                            <div class="feature-emoji">⚡️</div>
+                            <div class="feature-text">자동화 효율: 수백 명 인플루언서에게 단숨에 제안</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-emoji">💰</div>
+                            <div class="feature-text">비용 절감: 대행사 수수료·인건비 대폭 절감</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-emoji">📊</div>
+                            <div class="feature-text">데이터 신뢰성: 매일 최신화되는 대규모 인플루언서 리스트</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-emoji">🤝</div>
+                            <div class="feature-text">직접 소통: 중간 수수료 없이 바로 연결</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-emoji">📈</div>
+                            <div class="feature-text">리포트 제공: 제안 현황과 진행 성과까지 투명하게</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="contact" class="section fade-in section-contact row">
+                <div class="section-text">
+                    <h2>상담 신청하기</h2>
+                    <p>아래 정보를 입력해 주시면,<br>
+                    브랜드에 최적화된 인플루언서 네트워크와 자동화 솔루션을 지금 바로 받아보실 수 있습니다.</p>
+                    <form class="contact-form">
+                        <label>회사명(브랜드명)<br><input type="text" name="company" required></label><br>
+                        <label>성함<br><input type="text" name="name" required></label><br>
+                        <label>전화번호<br><input type="tel" name="phone" required></label><br>
+                        <label>이메일<br><input type="email" name="email" required></label><br>
+                        <button type="submit" class="cta-btn">상담 신청</button>
+                    </form>
+                </div>
+                <div class="section-img-wrap">
+                    <img src="contact-img.png" alt="상담 이미지" class="section-img img-contact">
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-company">(주) 문엔터테인먼트 | 사업자등록번호: 123-45-67890 | 대표: 홍길동</div>
+                <div class="footer-contact">서울특별시 강남구 테헤란로 123, 10층 | 02-1234-5678 | info@moon-ent.com</div>
+                <div class="footer-copyright">© 2025 Moon Entertainment. All rights reserved.</div>
+            </div>
+        </footer>
+    </body>
+</html>
