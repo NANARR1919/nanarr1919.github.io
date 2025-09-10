@@ -26,9 +26,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    const yOffset = document.querySelector('.navbar').offsetHeight;
-                    const y = target.getBoundingClientRect().top + window.pageYOffset - yOffset + 1;
-                    window.scrollTo({ top: y, behavior: 'smooth' });
+                    const navbar = document.querySelector('.navbar');
+                    const yOffset = navbar ? navbar.offsetHeight : 0;
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    if (yOffset) {
+                        setTimeout(() => {
+                            window.scrollBy({ top: -yOffset + 1, left: 0, behavior: 'instant' });
+                        }, 400);
+                    }
                 }
                 // 모바일 메뉴 닫기
                 document.querySelector('.nav-menu').classList.remove('open');
@@ -55,9 +60,14 @@ document.addEventListener('DOMContentLoaded', function () {
         startBtn.addEventListener('click', function() {
             const contact = document.getElementById('contact');
             if (contact) {
-                const yOffset = document.querySelector('.navbar').offsetHeight;
-                const y = contact.getBoundingClientRect().top + window.pageYOffset - yOffset + 1;
-                window.scrollTo({ top: y, behavior: 'smooth' });
+                const navbar = document.querySelector('.navbar');
+                const yOffset = navbar ? navbar.offsetHeight : 0;
+                contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (yOffset) {
+                    setTimeout(() => {
+                        window.scrollBy({ top: -yOffset + 1, left: 0, behavior: 'instant' });
+                    }, 400);
+                }
             }
         });
     }

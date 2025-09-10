@@ -458,3 +458,22 @@ body {
         font-size: 0.98em;
     }
 }
+@media (max-width: 900px) {
+    .section, .row, .row.reverse {
+        flex-direction: column !important;
+        gap: 2.5vw;
+        padding: 10vw 0 10vw 0;
+    }
+    .section-text, .section-img-wrap {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+    .section-img-wrap {
+        text-align: center;
+    }
+    .section-img {
+        max-width: 95vw;
+    }
+}
