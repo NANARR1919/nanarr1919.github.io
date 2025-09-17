@@ -3,7 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Noto Sans KR', Arial, sans-serif;
-    background: #f8fafc;
+    background: black;
     color: #222;
     scroll-behavior: smooth;
 }
@@ -118,11 +118,29 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(120deg, #f8fafc 60%, #e0e7ff 100%);
+    background: none;
     padding: 0 0 0 0;
     text-align: center;
+    position: relative; /* 추가 */
+    overflow: hidden;   /* 추가 */
+}
+.hero-bg-video {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+.hero-bg-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(30, 30, 50, 0.48); /* 어두운 오버레이 */
+    z-index: 1;
+    pointer-events: none;
 }
 .hero-inner {
+    position: relative;
+    z-index: 2;
     max-width: 700px;
     margin: 0 auto;
     padding: 8vw 4vw 6vw 4vw;
@@ -134,17 +152,26 @@ body {
     margin-bottom: 1.2rem;
     letter-spacing: -1px;
 }
+.section-hero .hero-title {
+    color: #fff;
+}
 .hero-desc.main {
     font-size: 1.35rem;
     color: #4f46e5;
     font-weight: 600;
     margin-bottom: 1.1rem;
 }
+.section-hero .hero-desc.main {
+    color: #e0e7ff;
+}
 .hero-desc.sub {
     font-size: 1.1rem;
     color: #444;
     line-height: 1.7;
     margin-bottom: 0.5rem;
+}
+.section-hero .hero-desc.sub {
+    color: #f3f4f6;
 }
 
 /* 자연스러운 섹션 레이아웃 */
@@ -196,132 +223,175 @@ body {
 
 /* 섹션별 배경 자연스럽게 */
 .section-problem {
-    background: linear-gradient(120deg, #fef2f2 0%, #f8fafc 100%);
+    background: url('image1.png') center center/cover no-repeat;
+    position: relative;
 }
+.section-problem::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(10, 10, 20, 0.78);
+    pointer-events: none;
+}
+.section-problem > * {
+    position: relative;
+    z-index: 1;
+}
+.section-problem .section-text,
+.section-problem .problem-card,
+.section-problem h2,
+.section-problem li {
+    color: #f3f4f6 !important;
+}
+.section-problem .problem-card {
+    background: rgba(40,40,60,0.75);
+    box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+}
+
+/* 해결 섹션 */
 .section-solution {
-    background: linear-gradient(120deg, #f0fdf4 0%, #f8fafc 100%);
+    background: url('image2.jpg') center center/cover no-repeat;
+    position: relative;
 }
+.section-solution::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(10, 10, 20, 0.78);
+    pointer-events: none;
+}
+.section-solution > * {
+    position: relative;
+    z-index: 1;
+}
+.section-solution .section-text,
+.section-solution h2,
+.section-solution li {
+    color: #f3f4f6 !important;
+}
+.section-solution .section-img-wrap {
+    /* 이미지가 어두워지도록 */
+    filter: brightness(0.8);
+}
+
+/* 해결 섹션 이미지에 부드러운 그림자 */
+.section-solution .section-img {
+    box-shadow: 0 8px 40px 0 rgba(60,70,120,0.22), 0 1.5px 8px 0 rgba(0,0,0,0.10);
+    border-radius: 2.2rem;
+    background: #fff;
+}
+
+/* 적용 분야 섹션 */
 .section-industries {
-    background: linear-gradient(120deg, #f0f9ff 0%, #f8fafc 100%);
+    background: url('image3.jpg') center center/cover no-repeat;
+    position: relative;
 }
+.section-industries::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(10, 10, 20, 0.78);
+    pointer-events: none;
+}
+.section-industries > * {
+    position: relative;
+    z-index: 1;
+}
+.section-industries .section-text,
+.section-industries h2,
+.section-industries li,
+.section-industries p {
+    color: #f3f4f6 !important;
+}
+.section-industries .section-img-wrap {
+    filter: brightness(0.8);
+}
+
+/* 특징 섹션 */
 .section-features {
-    background: linear-gradient(120deg, #f3e8ff 0%, #f8fafc 100%);
+    background: url('image4.png') center center/cover no-repeat;
+    position: relative;
 }
-.section-contact {
-    background: linear-gradient(120deg, #fefce8 0%, #f8fafc 100%);
+.section-features::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(10, 10, 20, 0.78);
+    pointer-events: none;
 }
-
-.section-text h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #23223a;
-    margin-bottom: 1.2rem;
+.section-features > * {
+    position: relative;
+    z-index: 1;
 }
-.section-text ul {
-    font-size: 1.1rem;
-    color: #333;
-    margin-bottom: 1.2rem;
-    line-height: 1.7;
-    padding-left: 1.2em;
-    list-style: none;
-    padding-left: 0;
+.section-features .section-text,
+.section-features h2,
+.section-features .feature-card,
+.section-features .feature-text {
+    color: #f3f4f6 !important;
 }
-.section-text p {
-    font-size: 1.05rem;
-    color: #444;
-    margin-bottom: 1.2rem;
+.section-features .feature-card {
+    background: rgba(40,40,60,0.75);
+    box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
 }
-
-/* 버튼 스타일 (business.noritter.com 느낌) */
-.cta-btn {
-    background: #4f46e5;
+.section-features .feature-emoji {
     color: #fff;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.95em 2.2em;
-    font-size: 1.15em;
-    font-weight: 700;
-    margin-top: 1.2em;
-    cursor: pointer;
-    box-shadow: 0 2px 12px 0 rgba(79,70,229,0.08);
-    transition: background 0.2s, box-shadow 0.2s;
 }
-.cta-btn:hover {
-    background: #3730a3;
-    box-shadow: 0 4px 24px 0 rgba(79,70,229,0.13);
-}
-
-/* 폼, 리스트 등 기존 스타일 유지 */
-.contact-form {
-    margin-top: 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-.contact-form label {
-    font-size: 1em;
-    color: #222;
-}
-.contact-form input {
-    width: 100%;
-    padding: 8px 10px;
-    margin-top: 4px;
-    border: 1px solid #d1d5db;
-    border-radius: 1.2em;
-    font-size: 1em;
-    background: #f9fafb;
-    transition: border 0.2s;
-}
-.contact-form input:focus {
-    border: 1.5px solid #4f46e5;
-    outline: none;
-}
-
-/* Fade-in animation */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
-}
-.fade-in.visible {
-    opacity: 1;
-    transform: none;
-}
-
-/* 푸터 */
-.footer {
+.section-features .features-cards {
     width: 100vw;
-    background: #232323;
-    color: #e5e7eb;
-    padding: 32px 0 18px 0;
-    text-align: center;
-    font-size: 0.98em;
-    flex-shrink: 0;
-}
-.footer-content {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-.footer-company, .footer-contact {
-    color: #bdbdbd;
+    max-width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0;
 }
 
-.section-full {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    box-sizing: border-box;
+/* 상담 섹션 */
+.section-contact {
+    background: url('image5.png') center center/cover no-repeat;
+    position: relative;
+}
+.section-contact::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(10, 10, 20, 0.78);
+    pointer-events: none;
+}
+.section-contact > * {
+    position: relative;
+    z-index: 1;
+}
+.section-contact .section-text,
+.section-contact h2,
+.section-contact p,
+.section-contact label {
+    color: #f3f4f6 !important;
+}
+.section-contact .contact-form input {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    border: 1px solid #e0e7ff;
+}
+.section-contact .contact-form input:focus {
+    border: 1.5px solid #fff;
+    background: rgba(255,255,255,0.22);
+    color: #fff;
+}
+.section-contact .cta-btn {
+    background: #fff;
+    color: #4f46e5;
+}
+.section-contact .cta-btn:hover {
+    background: #e0e7ff;
+    color: #3730a3;
 }
 
-.center-text {
-    text-align: center;
-}
-
-/* 문제 섹션 카드 스타일 추가 */
-.problem-cards {
+/* 문제 섹션 카드 스타일 (2/3 배열 복구, 모바일은 한줄) */
+.section-problem .problem-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -333,14 +403,14 @@ body {
     padding: 0;
     overflow: visible;
 }
-.problem-card {
+.section-problem .problem-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    background: #fff;
+    background: rgba(40,40,60,0.75);
     border-radius: 2.2rem;
-    box-shadow: 0 4px 32px 0 rgba(80,80,120,0.10);
+    box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
     padding: 2.2rem 1.2rem 1.5rem 1.2rem;
     text-align: center;
     font-size: 1.13rem;
@@ -348,42 +418,45 @@ body {
     transition: transform 0.18s, box-shadow 0.18s;
     min-width: 0;
     max-width: none;
+    color: #f3f4f6 !important;
 }
-.problem-card.row1 {
+.section-problem .problem-card.row1 {
     width: 32%;
     min-width: 260px;
     max-width: 420px;
 }
-.problem-card.row2 {
+.section-problem .problem-card.row2 {
     width: 45%;
     min-width: 260px;
     max-width: 520px;
 }
 @media (max-width: 1100px) {
-    .problem-cards {
+    .section-problem .problem-cards {
         gap: 1.2rem 1.2rem;
     }
-    .problem-card.row1, .problem-card.row2 {
+    .section-problem .problem-card.row1,
+    .section-problem .problem-card.row2 {
         width: 100%;
         min-width: 0;
         max-width: 100%;
     }
 }
 @media (max-width: 900px) {
-    .problem-cards {
+    .section-problem .problem-cards {
         gap: 1rem 0.5rem;
     }
-    .problem-card.row1, .problem-card.row2 {
+    .section-problem .problem-card.row1,
+    .section-problem .problem-card.row2 {
         width: 100%;
         min-width: 0;
         max-width: 100%;
     }
 }
 @media (max-width: 600px) {
-    .problem-cards {
+    .section-problem .problem-cards {
         gap: 0.5rem 0;
     }
-    .problem-card {
+    .section-problem .problem-card {
         font-size: 0.98em;
         padding: 1rem 0.3rem 0.7rem 0.3rem;
     }
@@ -476,4 +549,92 @@ body {
     .section-img {
         max-width: 95vw;
     }
+}
+
+/* 버튼 스타일 */
+.cta-btn {
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.95em 2.2em;
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-top: 1.2em;
+    cursor: pointer;
+    box-shadow: 0 2px 12px 0 rgba(79,70,229,0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.cta-btn:hover {
+    background: #3730a3;
+    box-shadow: 0 4px 24px 0 rgba(79,70,229,0.13);
+}
+
+/* 폼 input 스타일 */
+.contact-form {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contact-form label {
+    font-size: 1em;
+    color: #222;
+}
+.contact-form input {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 4px;
+    border: 1px solid #d1d5db;
+    border-radius: 1.2em;
+    font-size: 1em;
+    background: #f9fafb;
+    transition: border 0.2s;
+}
+.contact-form input:focus {
+    border: 1.5px solid #4f46e5;
+    outline: none;
+}
+
+/* 푸터 스타일 */
+.footer {
+    width: 100vw;
+    background: #232323;
+    color: #e5e7eb;
+    padding: 32px 0 18px 0;
+    text-align: center;
+    font-size: 0.98em;
+    flex-shrink: 0;
+}
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.footer-company, .footer-contact {
+    color: #bdbdbd;
+}
+
+/* 적용 분야, 상담 섹션 이미지에만 부드러운 그림자 */
+.section-industries .section-img,
+.section-contact .section-img {
+    box-shadow: 0 8px 40px 0 rgba(60,70,120,0.22), 0 1.5px 8px 0 rgba(0,0,0,0.10);
+    border-radius: 2.2rem;
+    background: #fff;
+}
+.section-img-wrap {
+    overflow: visible !important;
+}
+
+/* 부드러운 fade-in 애니메이션 (섹션 등장) */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: none;
 }

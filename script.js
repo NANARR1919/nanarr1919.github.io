@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
             featuresCards.appendChild(clone);
         });
         function autoScrollFeatures() {
-            scrollPos += 1.2; // px per frame
+            scrollPos += 0.5; // px per frame (느리게)
             if (scrollPos >= cardWidth * cardEls.length) {
                 scrollPos = 0;
             }
@@ -111,5 +111,11 @@ document.addEventListener('DOMContentLoaded', function () {
             requestAnimationFrame(autoScrollFeatures);
         }
         requestAnimationFrame(autoScrollFeatures);
+    }
+
+    // Hero section video playback speed slow
+    const heroVideo = document.querySelector('.hero-bg-video');
+    if (heroVideo) {
+        heroVideo.playbackRate = 0.5;
     }
 });
