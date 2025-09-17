@@ -25,9 +25,10 @@ body {
     position: sticky;
     top: 0;
     width: 100%;
-    background: rgba(255,255,255,0.97);
+    background: rgba(255,255,255,1);
     z-index: 1000;
     box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    /* overflow-y: hidden; */
 }
 .nav-container {
     max-width: 1200px;
@@ -37,11 +38,13 @@ body {
     justify-content: space-between;
     padding: 0 32px;
     height: 64px;
+    overflow: hidden;
 }
 .nav-logo {
     font-weight: bold;
     font-size: 1.3em;
     color: #4f46e5;
+    /* width:200px; */
 }
 .nav-menu {
     display: flex;
